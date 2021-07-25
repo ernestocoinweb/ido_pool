@@ -8,6 +8,9 @@ enum PoolStatus { Cancelled , Paused, Finished, Upcoming, Ongoing }
 
 contract Pool {
 
+    // Log the event about an invest	
+    event LogInvestMade(address investor, uint amount);
+
     struct Investor {
         uint projectTokenAmount; 
         address wallet; 
@@ -180,6 +183,8 @@ contract Pool {
         projectAvailableTokens -= projectTokenAmount;
         investor.projectTokenAmount += projectTokenAmount;
         collectedMainTokens += mainTokenAmount;
+
+	emit LogInvestMade(msg.sender, mainTokenAmount);	
     }
     
     function retriveInverstor(address walletTo) public {
