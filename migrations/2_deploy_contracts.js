@@ -1,8 +1,8 @@
 var Pool = artifacts.require("./Pool.sol");
-var MyCoin = artifacts.require("./MyToken.sol");
+var MyToken = artifacts.require("./MyToken.sol");
 
 module.exports = function(deployer) {
-    deployer.deploy(MyCoin, 1000).then(function() {  
-	return deployer.deploy(Pool, MyCoin.address, MyCoin.address);
+    deployer.deploy(MyToken, 1000).then(function() {  
+	return deployer.deploy(Pool, MyToken.address, MyToken.address);
     });
 };

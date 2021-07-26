@@ -124,7 +124,7 @@ contract Pool {
         });
     }
     
-    function addInvestor(address [] memory investorsToWhitelist) public {
+    function addInvestors(address [] memory investorsToWhitelist) public {
         require(
             msg.sender == poolOwner,
             "Only the pool owner whitelist wallets."
